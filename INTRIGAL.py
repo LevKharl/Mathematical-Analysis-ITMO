@@ -37,12 +37,13 @@ for i in range(len(x)):
     y[i] = math.cos(2 * (x[i] + shift))
     S += y[i] * delta_xi
     print(S)
+print('Итого, площадь под графиком функции cos(2x) равна: ', S)
 
 plt.figure(figsize=(20, 10))
 plt.xlabel(r'$x$', fontsize=18)
 plt.ylabel(r'$cos (2x)$', fontsize=18)
 plt.grid(False)
-plt.plot(x, np.cos(2 * x), label='График функции cos (2x)', color='red', linewidth=8, marker=".",  markerfacecolor='orange', markersize=20)
+plt.plot(x, np.cos(2 * x), label='График функции cos (2x)', color='red', linewidth=8, marker=".",markerfacecolor='orange', markersize=20)
 plt.legend(loc='best', fontsize=18)
 plt.gca()
 plt.bar(x, y, width=delta_xi, color='blue')  # добавить align
@@ -50,8 +51,7 @@ plt.show()
 
 Rn = 0 - S
 print('Проверка погрешности интеграла и его приближения')
-print(epsilon)
 if np.abs(Rn) <= np.abs(epsilon):
-    print('все гуд')
+    print('Rn = ', Rn, '<=', epsilon, 'значит всё гуд')
 else:
-    print('не гуд')
+    print('Rn = ', Rn, '>', epsilon, 'не гуд')
