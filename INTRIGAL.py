@@ -43,15 +43,15 @@ plt.figure(figsize=(20, 10))
 plt.xlabel(r'$x$', fontsize=18)
 plt.ylabel(r'$cos (2x)$', fontsize=18)
 plt.grid(False)
-plt.plot(x, np.cos(2 * x), label='График функции cos (2x)', color='red', linewidth=8, marker=".",markerfacecolor='orange', markersize=20)
+plt.plot(x, np.cos(2 * x), label='График функции cos (2x)', color='red', linewidth=8, marker=".", markerfacecolor='orange', markersize=20)
 plt.legend(loc='best', fontsize=18)
 plt.gca()
-plt.bar(x, y, width=delta_xi, color='blue')  # добавить align
+plt.bar(x, y, width=delta_xi, color='blue', align='center')
 plt.show()
 
 Rn = 0 - S
 print('Проверка погрешности интеграла и его приближения')
 if np.abs(Rn) <= np.abs(epsilon):
-    print('Rn = ', Rn, '<=', epsilon, 'значит всё гуд')
+    print('|Rn| = ', np.abs(Rn), '<=', np.abs(epsilon), 'значит всё гуд')
 else:
-    print('Rn = ', Rn, '>', epsilon, 'не гуд')
+    print('|Rn| = ', np.abs(Rn), '>', np.abs(epsilon), 'не гуд')
